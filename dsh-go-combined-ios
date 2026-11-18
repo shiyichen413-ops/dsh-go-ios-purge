@@ -1,14 +1,17 @@
 {
   "name": "dsh-go-combined-ios",
   "dist-tags": {
-    "latest": "1.2.3"
+    "latest": "1.2.4"
   },
   "versions": {
-    "1.2.3": {
+    "1.2.4": {
       "name": "dsh-go-combined-ios",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "description": "dsh-go-combined 1.2.3 的 npm 重打包（注入层+三套预设），保留上游署名与 AGPL-3.0",
-      "author": "YG",
+      "author": {
+        "name": "jixiaolan7（合并打包）",
+        "url": "https://github.com/jixiaolan7/dsh-go-purge-ios"
+      },
       "license": "AGPL-3.0",
       "type": "module",
       "main": "index.js",
@@ -163,15 +166,31 @@
       "bugs": {
         "url": "https://github.com/jixiaolan7/dsh-go-purge-ios/issues"
       },
+      "contributors": [
+        {
+          "name": "NANA7MI0",
+          "url": "https://github.com/NANA7MI0/dsh-purge-go",
+          "comment": "dsh-go-purge 0.4.18 注入层与补丁表"
+        },
+        {
+          "name": "lingsmall-code",
+          "url": "https://github.com/lingsmall-code/dsh-go-unrestricted",
+          "comment": "预设、面板与补丁引擎"
+        },
+        {
+          "name": "YuJunZhiXue",
+          "comment": "dsh-go-purge 原始作者"
+        }
+      ],
       "dist": {
-        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-go-combined-ios-1.2.3.tgz",
-        "shasum": "25a5cf639a82dd136320c6a82028acaa40fe4f84",
-        "integrity": "sha512-fIQr0N7E+SGpjl5ukMGNT8NTWvL81JH9i36r4tAlPwhiCuVtPtj/ulI+CmQwEH5DbpUqpXvz2z0g/1JtoGSqoA==",
-        "unpackedSize": 834062
+        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-go-combined-ios-1.2.4.tgz",
+        "shasum": "ac16a6aa22009fcd3df122737e0ae53813c8850d",
+        "integrity": "sha512-lq95UiVvG5N75+0cpow5U/2nU1rqd//5dFM6NTpIb+7tAqMCRFX3siSkm0elxkkS+852jqEvxRtDy1AmuuelUA==",
+        "unpackedSize": 834525
       }
     }
   },
   "time": {
-    "1.2.3": "2026-11-18T22:13:58.556Z"
+    "1.2.4": "2026-11-18T22:23:49.686Z"
   }
 }
