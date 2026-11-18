@@ -1,12 +1,12 @@
 {
   "name": "dsh-go-combined-ios",
   "dist-tags": {
-    "latest": "1.2.4"
+    "latest": "1.2.3"
   },
   "versions": {
-    "1.2.4": {
+    "1.2.3": {
       "name": "dsh-go-combined-ios",
-      "version": "1.2.4",
+      "version": "1.2.3",
       "description": "dsh-go-combined 1.2.3 的 npm 重打包（注入层+三套预设），保留上游署名与 AGPL-3.0",
       "author": {
         "name": "jixiaolan7（合并打包）",
@@ -183,14 +183,14 @@
         }
       ],
       "dist": {
-        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-go-combined-ios-1.2.4.tgz",
-        "shasum": "ac16a6aa22009fcd3df122737e0ae53813c8850d",
-        "integrity": "sha512-lq95UiVvG5N75+0cpow5U/2nU1rqd//5dFM6NTpIb+7tAqMCRFX3siSkm0elxkkS+852jqEvxRtDy1AmuuelUA==",
-        "unpackedSize": 834525
+        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-go-combined-ios-1.2.3.tgz",
+        "shasum": "70dba9f9a7547dfe1cb68a3be9425ab2a26c03d8",
+        "integrity": "sha512-w33/lSO49H226Zal+6kkcRWzXGMeLuzMM5Iutv3nz//HP4C13v2r9t62NmEurZY5CHS2cmmeGq8acbSZIMlH1A==",
+        "unpackedSize": 834515
       }
     }
   },
   "time": {
-    "1.2.4": "2026-11-18T22:23:49.686Z"
+    "1.2.3": "2026-11-18T22:58:53.393Z"
   }
 }
