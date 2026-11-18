@@ -1,0 +1,15 @@
+dsh-go-combined
+===============
+
+本包由两份上游代码合并而成：
+
+1) dsh-go-purge 0.4.18 —— 作者 NANA7MI0，许可 AGPL-3.0
+   https://github.com/NANA7MI0/dsh-purge-go
+   贡献：提示词注入层、purge_* 工具、patches/ 补丁表（86 条）
+
+2) dsh-go-unrestricted 1.7.61 —— 许可 MIT
+   贡献：unrestricted / unrestricted-child / redteam 三套 agent 预设、
+         面板与自检、引擎补丁引擎、随包技能
+
+因为包含 AGPL-3.0 代码，合并包整体按 AGPL-3.0 发布。
+上游 dsh-purge 的原始作者为 YuJunZhiXue。
