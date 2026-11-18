@@ -1,0 +1,157 @@
+{
+  "name": "dsh-purge-community",
+  "dist-tags": {
+    "latest": "1.7.20"
+  },
+  "versions": {
+    "1.7.20": {
+      "name": "dsh-purge-community",
+      "version": "1.7.20",
+      "description": "让 AI 更专注地辅助学习与动手实验：DSH 附加组件，提供状态自检、提示词与规则管理、本机备份与回滚。",
+      "type": "module",
+      "main": "lib/index.js",
+      "icon": "./icon.png",
+      "exports": {
+        ".": {
+          "default": "./lib/index.js"
+        },
+        "./client": "./client.js",
+        "./redteam": "./lib/redteam/index.js",
+        "./redteam/store": "./lib/redteam/store.js",
+        "./redteam/ui": "./lib/redteam/ui.js",
+        "./redteam/tools": "./lib/redteam/tools.js",
+        "./package.json": "./package.json",
+        "./presets-plugin": "./lib/presets-plugin.js"
+      },
+      "bin": {
+        "dsh-purge": "bin/dsh-purge.js",
+        "purge-community": "bin/community.js"
+      },
+      "files": [
+        "lib",
+        "!lib/default-prompt-inject.md",
+        "bin",
+        "presets",
+        "skills",
+        "client.js",
+        "cordis.patch.yml",
+        "screenshots.json",
+        "locale",
+        "icon.png",
+        "README.md",
+        "README.zh-CN.md",
+        "LICENSE",
+        "NOTICE.md",
+        "CONTRIBUTORS.md",
+        "AGENTS.md",
+        "REPACK.md"
+      ],
+      "license": "MIT",
+      "keywords": [
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "dsh-plugin",
+        "purge-community",
+        "prompt-management",
+        "rules",
+        "agent",
+        "backup",
+        "rollback",
+        "compatibility",
+        "破甲",
+        "jailbreak",
+        "prompt-injection",
+        "无限制模式",
+        "unrestricted"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/kingcharleslzy-ai/dsh-purge"
+      },
+      "homepage": "https://github.com/kingcharleslzy-ai/dsh-purge",
+      "bugs": {
+        "url": "https://github.com/kingcharleslzy-ai/dsh-purge/issues"
+      },
+      "dsh": {
+        "bundle": {
+          "patch": "./cordis.patch.yml"
+        },
+        "client": {
+          "platform": "web",
+          "inject": [
+            "@deepseek-ai/dsh-client-connection",
+            "@deepseek-ai/dsh-client-runtime",
+            "@deepseek-ai/dsh-client-locale",
+            "@deepseek-ai/dsh-client-ui-slots",
+            "@deepseek-ai/dsh-client-ui-settings",
+            "@deepseek-ai/dsh-client-ui-sidebar-right"
+          ]
+        },
+        "install": {
+          "preferred": "tarball",
+          "tarball": "https://github.com/kingcharleslzy-ai/dsh-purge/releases/download/v1.7.20/dsh-purge-community-1.7.20.tgz",
+          "git": "https://github.com/kingcharleslzy-ai/dsh-purge.git"
+        },
+        "compatibility": {
+          "dsh": ">=0.2.1-rc.1 <0.3.0",
+          "profiles": [
+            "desktop",
+            "web"
+          ],
+          "dshReleases": {
+            "0.2.1-rc.1": "compatible",
+            "0.2.1-rc.2": "compatible",
+            "0.2.1-rc.3": "compatible",
+            "0.2.1-rc.4": "unknown",
+            "0.2.1-rc.5": "compatible",
+            "0.2.2-alpha.2": "unknown",
+            "0.2.2-rc.1": "compatible",
+            "0.2.2-rc.2": "compatible",
+            "0.2.2-rc.3": "compatible"
+          }
+        }
+      },
+      "publishConfig": {
+        "access": "public"
+      },
+      "peerDependencies": {
+        "@deepseek-ai/cordis": "^4.0.1"
+      },
+      "engines": {
+        "node": ">=18"
+      },
+      "dshTarget": "0.2.1-rc.1 (runtime injection + host patches verified)",
+      "contributors": [
+        {
+          "name": "YuJunZhiXue",
+          "comment": "dsh-purge 原始作者"
+        },
+        {
+          "name": "NANA7MI0",
+          "url": "https://github.com/NANA7MI0/dsh-purge-go",
+          "comment": "dsh-go 适配线"
+        }
+      ],
+      "author": {
+        "name": "kingcharleslzy-ai（社区维护版）",
+        "url": "https://github.com/kingcharleslzy-ai/dsh-purge"
+      },
+      "dependencies": {
+        "yaml": "2.9.1"
+      },
+      "devDependencies": {
+        "@deepseek-ai/cordis": "4.0.5"
+      },
+      "dist": {
+        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-purge-community-1.7.20.tgz",
+        "shasum": "c61f6836ac1ca3987f069a7e095572ce9e46c5a8",
+        "integrity": "sha512-9Iwsr4Wp9ALhFHViZhupd8t9Dy+l2zBwkne2JJM+UKUqHvKKJwlV11OODP1TQawU7p4wOmYz/e2weeTBS3Cr7A==",
+        "unpackedSize": 1181400
+      }
+    }
+  },
+  "time": {
+    "1.7.20": "2026-11-18T22:54:51.395Z"
+  }
+}
