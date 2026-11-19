@@ -1,16 +1,42 @@
-# dsh-go-combined-ios · 静态注册表
+# dsh-go-combined-ios · iOS 适配版静态注册表
 
-给 DSH Go（iOS）用的静态 npm 注册表。DSH Go 只接受 HTTPS 注册表来源的纯 JS 包，这个仓库就是那个来源。
+给 **iOS 上的 DSH Go（自签 ipa 版）** 用的静态 npm 注册表。DSH Go 只接受 HTTPS 注册表来源的纯 JS 包，这个仓库就是那个来源。
+
+这是为 iOS 重新打包的版本，**不是通用版**。Android、桌面端请直接回上游装原包，不要用这里的东西。
 
 ## 装什么
 
-`dsh-go-combined-ios` —— 破甲合并包（dsh-go-combined）的重打包版，代码未做功能改动。
+`dsh-go-combined-ios@1.2.3` —— 破甲合并包（dsh-go-combined）的 iOS 重打包版。
 
 安装：
 
 ```
-用 plugin_manager 安装 dsh-go-combined-ios@1.2.4，registry 指定 https://shiyichen413-ops.github.io/dsh-registry/
+用 plugin_manager 安装 dsh-go-combined-ios@1.2.3，registry 指定 https://shiyichen413-ops.github.io/dsh-registry/
 ```
+
+## 为 iOS 做了什么
+
+- **包名改写**：`dsh-go-combined` → `dsh-go-combined-ios`，避免与上游包名撞车，也便于和上游版本区分。
+- **保持纯 JS、零原生依赖、无 install 脚本**。iOS 宿主只收注册表上的纯 JS 包，带安装脚本或原生模块的包会在安装阶段被 `OHOS_PLUGIN_UNSUPPORTED` / `ERR_OHOS_PLUGIN_PACKAGE` 直接拒掉，进不来。
+- **来源是上游 v1.2.3**，注入文本、补丁表、三套预设内容一律未动，只改包名与作者字段。
+- **红队预设的路径问题在 1.2.3 已由上游修掉**：旧版把 `anchor-gate` 写死成安卓 proot 的 `file:///root/.dsh/...`，iOS 上 HOME 不是 `/root`，所以整条预设判定为不可用。
+
+## iOS 上跑不起来的
+
+装之前先看清这几条，别指望它和桌面端一样全：
+
+- **面板、工作台、侧栏类界面全部不显示。** App 用的是原生界面，不渲染插件的网页 UI。插件里凡是靠网页呈现的功能——状态页、开关卡片、红队演练台、资产库——装上了也看不见。
+- **桌面专属的补丁没有落点。** 补丁表里约 29 条针对桌面端包（`dsh-client-ui-conversation` 之类），iOS 上这些包根本不存在，不计入生效，也不用管。
+- **原生二进制插件装不了。** iOS 跑不了 `.node` 原生模块，任何带原生依赖的包都会在平台检查阶段被拒。
+- **补丁层每次彻底重启会掉几条。** 实测每次约掉 3 条，用 `purge_patch_apply mode=apply` 补回即可；注入层由宿主进程现场组装，重启不受影响。
+
+## 实测状态
+
+机型：iOS，DSH Go 自签版，引擎 dsh `0.2.2-rc.1`。
+
+- 注入层：开，三套预设（无限制模式 / 无限制·子任务 / 红队模式）均为 active。
+- 补丁层：约 54/57 生效，剩余几条为引擎版本措辞不匹配或桌面专属。
+- 全局注入对所有会话生效（含酒馆），这是插件本身的设计，不是本仓库改的。
 
 ## 上游与作者
 
@@ -23,8 +49,8 @@
 
 ## 本仓库做了什么
 
-只改包名与版本号（`dsh-go-combined` → `dsh-go-combined-ios`，1.2.3 → 1.2.4），
-并补上作者、贡献者与来源字段。注入文本、补丁表、预设内容一律未动。
+只改包名（`dsh-go-combined` → `dsh-go-combined-ios`），并补上作者、贡献者与来源字段。
+版本号与上游一致，为 **1.2.3**。注入文本、补丁表、预设内容一律未动，详见 `REPACK.md`。
 
 ## 许可
 
