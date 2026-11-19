@@ -21,6 +21,22 @@
 - **来源是上游 v1.2.3**，注入文本、补丁表、三套预设内容一律未动，只改包名与作者字段。
 - **红队预设的路径问题在 1.2.3 已由上游修掉**：旧版把 `anchor-gate` 写死成安卓 proot 的 `file:///root/.dsh/...`，iOS 上 HOME 不是 `/root`，所以整条预设判定为不可用。
 
+## 为什么有些东西在这台机器上装不上
+
+先把最容易误会的一点说清：**自签 ipa 只解决「App 能不能装进手机」，管不到「插件能不能装进 App」。** 插件安装走的是 App 内部的宿主策略检查，跟签名方式、跟有没有越狱都无关。自签版真正的好处是 App Store 管不到它——不主动重签新包，App 就不会自动更新，已装的插件和补丁不会被一次更新覆盖掉。
+
+DSH Go（iOS）的插件通道只有一条：**HTTPS 注册表上的纯 JS 包**。下面这些方式实测全部被拒：
+
+| 你试的方式 | 报错 |
+|---|---|
+| zip 包 / 本地目录 / 本地 tgz | `OHOS_PLUGIN_UNSUPPORTED`：本机仅支持注册表纯 JS 包，不运行安装脚本 |
+| `github:` 整包地址 | 同上，不认 git 源 |
+| 自建本地注册表（http 或非标准端口） | `ERR_OHOS_PLUGIN_PACKAGE: Package URL must use HTTPS without credentials, query or fragment` |
+| 带原生模块（`.node`）的包 | `ERR_OHOS_PLUGIN_PACKAGE: incompatible OHOS arm64 platform`，iOS 跑不了原生模块 |
+| 引擎版本要求不满足的包 | 安装阶段直接挡住 |
+
+也就是说，一个包要能在这台机器上装，必须同时满足四条：**托管在 HTTPS 上、纯 JS、无安装脚本、零原生依赖**。这也是本仓库存在的唯一理由——把上游的 zip 重打成符合这四条的形状，挂在 GitHub Pages 上，让 `plugin_manager` 按包名取。
+
 ## iOS 上跑不起来的
 
 装之前先看清这几条，别指望它和桌面端一样全：
