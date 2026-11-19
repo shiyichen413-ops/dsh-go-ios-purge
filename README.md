@@ -4,6 +4,24 @@
 
 这是为 iOS 重新打包的版本，**不是通用版**。Android、桌面端请直接回上游装原包，不要用这里的东西。
 
+## 这个「自签版」装的是哪个 IPA
+
+来源是 DSH Go 官方仓库，不是第三方改包：
+
+| 项 | 值 |
+|---|---|
+| 仓库 | [ccch1mneyyy/dsh-Go](https://github.com/ccch1mneyyy/dsh-Go) |
+| 版本 | [v1.2.0](https://github.com/ccch1mneyyy/dsh-Go/releases/tag/v1.2.0)（2026-11-18） |
+| 文件 | [`dsh-go-1.2.0-ios-unsigned.ipa`](https://github.com/ccch1mneyyy/dsh-Go/releases/download/v1.2.0/dsh-go-1.2.0-ios-unsigned.ipa) |
+| 大小 | 123,474,162 字节（约 118 MB） |
+| SHA256 | `f8f6d4c6421465f3e2745dd389985dc7a35a4e092411292b3f0c280bf43fa7d1` |
+
+官方对 iOS 只发**未签名**的 ipa，没有公开的 TestFlight 通道，要用 AltStore、爱思助手这类工具自己签名再装。用免费 Apple ID 签名时 Bundle ID 会被改掉，Siri、分享扩展、后台运行这些能力可能用不了。上游自己也写明：iOS 版只在 CI 里编过、跑过模拟器，真机只零星试过，出问题要去开 issue。
+
+同一版本还有安卓安装包 `dsh-go-1.2.0-arm64.apk`，以及 `SHA256SUMS`、`update.json`（自动更新和校验用，不用手动下）。
+
+装上之后，App 不归 App Store 管：你不重新签一个新包，它就不会自己更新，插件和补丁也就不会被更新冲掉。
+
 ## 装什么
 
 `dsh-go-combined-ios@1.2.3` —— 破甲合并包（dsh-go-combined）的 iOS 重打包版。
