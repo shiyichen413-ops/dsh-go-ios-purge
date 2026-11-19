@@ -183,7 +183,7 @@
         }
       ],
       "dist": {
-        "tarball": "https://shiyichen413-ops.github.io/dsh-registry/-/dsh-go-combined-ios-1.2.3.tgz",
+        "tarball": "https://shiyichen413-ops.github.io/dsh-go-ios-purge/-/dsh-go-combined-ios-1.2.3.tgz",
         "shasum": "70dba9f9a7547dfe1cb68a3be9425ab2a26c03d8",
         "integrity": "sha512-w33/lSO49H226Zal+6kkcRWzXGMeLuzMM5Iutv3nz//HP4C13v2r9t62NmEurZY5CHS2cmmeGq8acbSZIMlH1A==",
         "unpackedSize": 834515
