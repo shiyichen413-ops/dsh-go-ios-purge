@@ -42,7 +42,7 @@
 安装：
 
 ```
-用 plugin_manager 安装 dsh-go-combined-ios@1.2.3，registry 指定 https://shiyichen413-ops.github.io/dsh-registry/
+用 plugin_manager 安装 dsh-go-combined-ios@1.2.3，registry 指定 https://shiyichen413-ops.github.io/dsh-go-ios-purge/
 ```
 
 ## 装之前、装完、要退回
