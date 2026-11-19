@@ -8,6 +8,8 @@
 
 `dsh-go-combined-ios@1.2.3` —— 破甲合并包（dsh-go-combined）的 iOS 重打包版。
 
+**来源：** 代码取自上游 [jixiaolan7/dsh-go-purge-ios](https://github.com/jixiaolan7/dsh-go-purge-ios) 的 `v1.2.3` 标签，重打包时只改包名，版本号仍为 1.2.3。上游的发布包是 zip，只能在安卓 proot 或桌面上用 `bash install.sh` 装；本仓库把它转成 HTTPS 注册表上的纯 JS 包，iOS 的 `plugin_manager` 才认得。
+
 安装：
 
 ```
