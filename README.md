@@ -1,6 +1,6 @@
 # dsh-go-combined-ios · iOS 适配版静态注册表
 
-给 **iOS 上的 DSH Go（自签 ipa 版）** 用的静态 npm 注册表。DSH Go 只接受 HTTPS 注册表来源的纯 JS 包，这个仓库就是那个来源。
+给 **iOS 上的 DSH Go（自签 ipa 版）** 用的静态 npm 注册表。按目前的实测，DSH Go 能装的只有 HTTPS 注册表来源的纯 JS 包，这个仓库就是那个来源。
 
 这是为 iOS 重新打包的版本，**不是通用版**。Android、桌面端请直接回上游装原包，不要用这里的东西。
 
